@@ -10,6 +10,11 @@ body {
   border: 3px solid rgba(128, 128, 128, 0.115);
   background-color: floralwhite;
 }
+
+.dev-info {
+  margin: 20px;
+  padding: 10px;
+}
 .block {
   color: white;
   background-color: turquoise;
