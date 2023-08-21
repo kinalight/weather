@@ -4,6 +4,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
 .weather {
   margin: 20px;
   padding: 10px;
@@ -11,37 +12,60 @@ body {
   background-color: floralwhite;
 }
 
+.active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: underline;
+}
+
+#fahrenheit-link {
+  text-decoration: none;
+}
+
+#fahrenheit-link:hover {
+  text-decoration: underline;
+}
+
+
 .dev-info {
   margin: 20px;
   padding: 10px;
 }
+
 .block {
   color: white;
   background-color: turquoise;
   border-radius: 5rem;
   border: none;
-  width: 20%;
-  font-size: 30px;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   cursor: pointer;
   text-align: center;
-  margin-left: 15px;
-  margin-bottom: 20px;
+  margin: 0;
 }
+
 #location-button {
   color: white;
   background-color: blueviolet;
   border-radius: 5rem;
   border: none;
-  width: 10%;
-  font-size: 20px;
+  font-size: 1.5rem;
+  padding: 0.25rem;
   cursor: pointer;
   text-align: center;
+  margin: 0;
 }
+
 #query {
   color: darkgrey;
   background-color: rgba(128, 128, 128, 0.115);
   border-radius: 5rem;
-  width: 40%;
   padding: 5px 5px;
   font-size: 20px;
   border: 3px solid rgba(128, 128, 128, 0.115);
@@ -56,11 +80,12 @@ h2 {
   margin-bottom: 40px;
   color: darkgrey;
 }
+
 .row.text-center {
   column-gap: 20px;
 }
 
-.temp > .col-2 {
+.temp>.col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -71,10 +96,31 @@ h2 {
   color: red;
 }
 
-h1 > a {
+h1>a {
   text-decoration: none;
 }
 
-h1 > a:hover {
+h1>a:hover {
   text-decoration: underline;
+}
+
+.actions{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#search-form {
+  display: grid;
+  grid-template-columns: auto min-content;
+  gap: 1rem;
+}
+
+#temperature-humidity {
+  color: darkgrey;
+}
+
+#temperature-wind {
+  color: darkgrey;
 }

@@ -10,91 +10,111 @@
 		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 	<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 	<script defer src="./src/index.js"></script>
+
 </head>
 
 <body>
 	<div class="weather">
 		<div class="container">
-			<div class="row">
-				<form id="search-form">
+			<div class="actions">
+				<form id="search-form" class="">
 					<input type="search" id="query" name="q" placeholder="Enter Your City...">
 					<button class="block" type="submit" value="Search">Search</button>
 				</form>
 				<button id="location-button" class="block" type="button" value="Search">Current</button>
 			</div>
 			<div class="row">
-				<div class="col-7">
+				<div class="col-5">
 					<h1 id="city">Sandton</h1>
 					<h2>Monday 20:00</h2>
 				</div>
-				<div class="col-5">
-					<h1 id="temperature">17°C</h1>
-					<h2 id="temperature-description">Mostly Sunny</h2 </div>
-				</div>
-				<div class="row text-center">
-					<div class="col-2">
-						Tuesday
-					</div>
-					<div class="col-2">
-						Wednesday
-					</div>
-					<div class="col-2">
-						Thursday
-					</div>
-					<div class="col-2">
-						Friday
-					</div>
-					<div class="col-2">
-						Saturday
-					</div>
-					<div class="col-2">
+				<div class="col-3">
+					<div><img src="https://openweathermap.org/img/wn/10d@2x.png" id="icon" />
 					</div>
 				</div>
-				<div class="row text-center">
-					<div class="col-2">
-						⛅
-					</div>
-					<div class="col-2">
-						⛅
-					</div>
-					<div class="col-2">
-						☀️
-					</div>
-					<div class="col-2">
-						☀️
-					</div>
-					<div class="col-2">
-						☀️
-					</div>
-					<div class="col-2">
-					</div>
-				</div>
-				<div class="row text-center temp">
-					<div class="col-2">
-						<div id="low">-3°</div>
-						<div>9°</div>
-					</div>
-					<div class="col-2">
-						<div id="low">1°</div>
-						<div>15°</div>
-					</div>
-					<div class="col-2">
-						<div id="low">2°</div>
-						<div>16°</div>
-					</div>
-					<div class="col-2">
-						<div id="low">2°</div>
-						<div>17°</div>
-					</div>
-					<div class="col-2">
-						<div id="low">3°</div>
-						<div>17°</div>
-					</div>
-					<div class="col-2">
+				<div class="col-4">
+
+					<div>
+						<h1>
+							<span  id="temperature">
+								17
+							</span>
+							<span class="units">
+								<a href="#" id="celsius-link" class="active">°C</a> |
+								<a href="#" id="fahrenheit-link">°F</a>
+							</span>
+							</span>
+						</h1>
+						<div id="temperature-description">Mostly Sunny</div>
+						<div id="temperature-humidity">25% Humidity</div>
+						<div id="temperature-wind">1km/h Speed</div>
 					</div>
 				</div>
 			</div>
+			<!-- <div class="row text-center">
+				<div class="col-2">
+					Tuesday
+				</div>
+				<div class="col-2">
+					Wednesday
+				</div>
+				<div class="col-2">
+					Thursday
+				</div>
+				<div class="col-2">
+					Friday
+				</div>
+				<div class="col-2">
+					Saturday
+				</div>
+				<div class="col-2">
+				</div>
+			</div> -->
+			<!-- <div class="row text-center">
+				<div class="col-2">
+					⛅
+				</div>
+				<div class="col-2">
+					⛅
+				</div>
+				<div class="col-2">
+					☀️
+				</div>
+				<div class="col-2">
+					☀️
+				</div>
+				<div class="col-2">
+					☀️
+				</div>
+				<div class="col-2">
+				</div>
+			</div>
+			<div class="row text-center temp">
+				<div class="col-2">
+					<div id="low">-3°</div>
+					<div>9°</div>
+				</div>
+				<div class="col-2">
+					<div id="low">1°</div>
+					<div>15°</div>
+				</div>
+				<div class="col-2">
+					<div id="low">2°</div>
+					<div>16°</div>
+				</div>
+				<div class="col-2">
+					<div id="low">2°</div>
+					<div>17°</div>
+				</div>
+				<div class="col-2">
+					<div id="low">3°</div>
+					<div>17°</div>
+				</div>
+				<div class="col-2">
+				</div>
+			</div> -->
 		</div>
+	</div>
 	</div>
 	<p class="dev-info">
 		<a href="https://github.com/kinalight/weather">Open source code</a> by Sakina Shiri 🌸

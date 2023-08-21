@@ -1,16 +1,23 @@
-function showTemperature(response) {
+async function showTemperature(response) {
   console.log("[response] -> ", response);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
-  //  console.log("[temperatureElement] -> ", temperatureElement);
+  temperatureElement.innerHTML = `${temperature}`;
   let description = document.querySelector("#temperature-description");
-  //  console.log("[description] -> ", description);
-  //  console.log( "[response.data.weather[0].description] -> ",  response.data.weather[0].description);
-  temperatureElement.innerHTML = `${temperature}°C`;
+  let humidity = document.querySelector("#temperature-humidity");
+  let wind = document.querySelector("#temperature-wind");
   description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity + " % Humidity";
+  wind.innerHTML = Math.round(response.data.wind.speed) + " km/h Speed";
 
   // setDate(response.data.dt);
   setDate();
+
+  console.log("[data] -> ", response.data.weather[0].icon)
+  let iconElement = document.querySelector("#icon");
+  if (response.data.weather[0]) {
+    iconElement.src = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+  }
 }
 
 function setDate() {
@@ -69,24 +76,24 @@ function getCurrentPosition() {
 let button = document.querySelector("#location-button");
 button.addEventListener("click", getCurrentPosition);
 
-// let tempNumberCelcius = 17;
-// const convertCelcius = document.getElementById("celcius-link");
-// const convertFahrenheit = document.getElementById("fahrenheit-link");
-// const temp = document.getElementById("temp");
+let tempNumberCelsius = 17;
+const convertCelsius = document.getElementById("celsius-link");
+const convertFahrenheit = document.getElementById("fahrenheit-link");
+const temp = document.getElementById("temperature");
 
-// if (temp) {
-//  temp.innerText = tempNumberCelcius;
-// }
+if (temp) {
+  temp.innerText = tempNumberCelsius;
+}
 
-// if (convertCelcius) {
-//  convertCelcius.addEventListener("click", () => {
-//    temp.innerText = tempNumberCelcius;
-//  });
-// }
+if (convertCelsius) {
+  convertCelsius.addEventListener("click", () => {
+    temp.innerText = tempNumberCelsius;
+  });
+}
 
-// if (convertFahrenheit) {
-//  convertFahrenheit.addEventListener("click", () => {
-//    const fahrenheit = Math.floor((tempNumberCelcius * 9) / 5 + 32);
-//    temp.innerText = fahrenheit;
-//  });
-// }
+if (convertFahrenheit) {
+  convertFahrenheit.addEventListener("click", () => {
+    const fahrenheit = Math.floor((tempNumberCelsius * 9) / 5 + 32);
+    temp.innerText = fahrenheit;
+  });
+}
