@@ -18,6 +18,43 @@ async function showTemperature(response) {
   if (response.data.weather[0]) {
     iconElement.src = `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
   }
+
+  getForecast(response.data.coord);
+
+}
+
+function showForecast(response) {
+  console.log("[showForecast] -> ", response);
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  forecast.forEach((forecastDay, index) => {
+    if (index > 5) {
+      return
+    }
+    console.log("[#] ->", new Date(forecastDay['time'] * 1000).getDay(), new Date(forecastDay['time'] * 1000))
+    forecastHTML +=
+      `<div class="col-2">
+						<div class="WeatherForecastPreview">
+							<div class="forecast-time">${days[new Date(forecastDay['time'] * 1000).getDay()]}</div><canvas width="38" height="38"></canvas>
+							<img src="${forecastDay['condition']['icon_url']}" width="36" id="icon" />
+							<div class="forecast-temperature">
+								<span class="forecast-temperature-max">${Math.round(forecastDay['temperature']['minimum'])}°</span>
+								<span class="forecast-temperature-min">${Math.round(forecastDay['temperature']['maximum'])}°</span>
+							</div>
+						</div>
+					</div>`;
+  })
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+function getForecast(coordinates) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=e6o8f92359ab88a9d8ce3f7690d49tf3&units=metric`
+  axios.get(apiUrl).then(response => showForecast(response));
+  console.log(response.data.daily)
 }
 
 function setDate() {
@@ -85,15 +122,15 @@ if (temp) {
   temp.innerText = tempNumberCelsius;
 }
 
-if (convertCelsius) {
-  convertCelsius.addEventListener("click", () => {
-    temp.innerText = tempNumberCelsius;
-  });
-}
+// if (convertCelsius) {
+//   convertCelsius.addEventListener("click", () => {
+//     temp.innerText = tempNumberCelsius;
+//   });
+// }
 
-if (convertFahrenheit) {
-  convertFahrenheit.addEventListener("click", () => {
-    const fahrenheit = Math.floor((tempNumberCelsius * 9) / 5 + 32);
-    temp.innerText = fahrenheit;
-  });
-}
+// if (convertFahrenheit) {
+//   convertFahrenheit.addEventListener("click", () => {
+//     const fahrenheit = Math.floor((tempNumberCelsius * 9) / 5 + 32);
+//     temp.innerText = fahrenheit;
+//   });
+// }

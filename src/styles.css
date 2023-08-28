@@ -12,6 +12,19 @@ body {
   background-color: floralwhite;
 }
 
+#forecast {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.forecast-time {
+  align-items: center;
+}
+
+.forecast-temperature-min {
+  opacity: 0.3;
+}
+
 .active {
   color: black;
   cursor: default;
